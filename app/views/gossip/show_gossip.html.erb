@@ -1,0 +1,12 @@
+<div class="jumbotron alert alert-success text-dark">
+  <h1 class="text-uppercase font-weight-bold"><%= @gossip.title %></h1>
+  <p class="lead"><%= @gossip.content %></p>
+  <hr class="my-4">
+  <h4 class="font-weight-bold mb-3">Author details</h4>
+  <p class="h6"><span class="font-weight-bold">First name : </span><%= @gossip.user.first_name %></p>
+  <p class="h6"><span class="font-weight-bold">Last name : </span><%= @gossip.user.last_name %></p>
+  <p class="h6"><span class="font-weight-bold">Email : </span><%= @gossip.user.email %></p>
+  <p class="h6"><span class="font-weight-bold">Age : </span><%= @gossip.user.age %> years</p>
+  <p class="h6"><span class="font-weight-bold">Description : </span><%= @gossip.user.description %></p>
+  <a class="btn btn-info btn-md mt-2" href="<%= user_path(@gossip.user.id) %>" role="button">Show author details</a>
+</div>

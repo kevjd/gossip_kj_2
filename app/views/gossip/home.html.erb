@@ -1,0 +1,15 @@
+<div class="container-fluid position-absolute mt-4">
+  <p>Hi there ! These are all the gossips.</p>
+  <div class="card bg-info">
+    <div class="card-header">
+      <h3 class="h3 font-weight-bold text-white">All gossips</h3>
+    </div>
+    <% @gossips.each do |gossip| %>
+      <div class="card-body alert alert-info mb-0 text-dark">
+        <h5 class="card-text"><span class="font-weight-bold">Title : </span><%= gossip.title %></h5>
+        <p class="card-title"><span class="font-weight-bold">Author : </span><%= gossip.user.first_name %></p>
+        <a href="<%= gossip_path(gossip.id) %>" class="btn btn-info">Go to gossip page</a>
+      </div>
+    <% end %>
+  </div>
+</div>

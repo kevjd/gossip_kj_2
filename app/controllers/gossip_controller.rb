@@ -1,10 +1,13 @@
 class GossipController < ApplicationController
-  def index
+  def home
     @gossips = Gossip.all
   end
 
-  def show
-    @gossip = Gossip.find(params[:id])
+  def welcome
+    @user = params[:user]
   end
 
+  def show_gossip
+    @gossip = Gossip.find(params[:id])
+  end
 end
