@@ -1,14 +1,16 @@
 Rails.application.routes.draw do
+    resources :gossip
+    resources :user
+    resources :city
+    resources :comment 
+    resources :sessions, only: [:new, :create, :destroy]
+    resources :like, only: [:show, :create, :destroy]
+  
+
     # --- routes for about_us_controller ---
     get '/contact', to: 'about_us#contact'
-    get '/team', to: 'about_us#team'
+    get '/team', to: 'about_us#team'    
 
-    # --- Routes for gossip_controller ---
-    get '/', to: 'gossip#home'
-    get '/welcome/:user', to: 'gossip#welcome', as: 'welcome'
-    get '/gossip/:id', to: 'gossip#show_gossip', as: 'gossip'
-
-    # --- Routes for user controller ---
-    get '/user/:id', to: 'user#show_user', as: 'user'
+    root 'gossip#index'
 end
 

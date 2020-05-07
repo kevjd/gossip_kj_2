@@ -1,0 +1,24 @@
+<h2>Tu peux modifier le potin</h2>
+
+<div class="card create-potin">
+  <div class="card-header">
+    <h2>Modification d'un potin</h2>
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
+      <%= form_tag url_for(action: 'update'), method: "patch" do %>
+
+        <%= label_tag 'Titre de ton potin' %>
+        <%= text_field_tag 'title' %>
+        <br /> <br />
+
+        <%= label_tag 'Description de ton potin' %>
+        <%= text_area_tag 'content' %>
+        <br /> <br />
+
+        <%= submit_tag "Soumet ton potin" %>
+
+      <% end %>
+    </blockquote>
+  </div>
+</div>

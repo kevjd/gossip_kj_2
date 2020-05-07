@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_195748) do
+ActiveRecord::Schema.define(version: 2020_05_06_135416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,16 @@ ActiveRecord::Schema.define(version: 2020_05_03_195748) do
     t.index ["sender_id"], name: "index_private_messages_on_sender_id"
   end
 
+  create_table "sub_comments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "comment_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_sub_comments_on_comment_id"
+    t.index ["user_id"], name: "index_sub_comments_on_user_id"
+  end
+
   create_table "tag_gossip_links", force: :cascade do |t|
     t.bigint "gossip_id"
     t.bigint "tag_id"
@@ -84,6 +94,7 @@ ActiveRecord::Schema.define(version: 2020_05_03_195748) do
     t.bigint "city_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
     t.index ["city_id"], name: "index_users_on_city_id"
   end
 
